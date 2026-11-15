@@ -5,6 +5,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+
 import type { Book } from "../services/bookService";
 
 interface FavoriteContextType {
@@ -26,7 +27,9 @@ export function FavoriteProvider({ children }: { children: ReactNode }) {
 
   function addFavorite(book: Book) {
     setFavorites((prev) => {
-      if (prev.some((item) => item.key === book.key)) return prev;
+      if (prev.some((item) => item.key === book.key)) {
+        return prev;
+      }
 
       const updated = [...prev, book];
       localStorage.setItem("favorite-books", JSON.stringify(updated));
@@ -48,7 +51,12 @@ export function FavoriteProvider({ children }: { children: ReactNode }) {
 
   return (
     <FavoriteContext.Provider
-      value={{ favorites, addFavorite, removeFavorite, isFavorite }}
+      value={{
+        favorites,
+        addFavorite,
+        removeFavorite,
+        isFavorite,
+      }}
     >
       {children}
     </FavoriteContext.Provider>
@@ -59,7 +67,9 @@ export function useFavorites() {
   const context = useContext(FavoriteContext);
 
   if (!context) {
-    throw new Error("useFavorites harus digunakan di dalam FavoriteProvider");
+    throw new Error(
+      "useFavorites harus digunakan di dalam FavoriteProvider"
+    );
   }
 
   return context;
