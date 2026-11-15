@@ -107,6 +107,15 @@ Data buku diperoleh dari Open Library API:
 
 https://openlibrary.org/developers/api
 
+## Preview Aplikasi
+
+Berikut merupakan tampilan aplikasi BukuKita:
+
+- Halaman Beranda: Menampilkan katalog buku dan fitur pencarian.
+- Halaman Detail: Menampilkan informasi lengkap buku dan tombol favorit.
+- Halaman Favorit: Menampilkan daftar buku yang disimpan.
+- Halaman Catatan: Menampilkan fitur pembuatan catatan atau ulasan buku.
+
 ## Cara Menjalankan Aplikasi
 
 1. Clone repository ini.
